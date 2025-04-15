@@ -55,28 +55,6 @@ Use WSL or download [Apache binaries](https://www.apachelounge.com/download/).
 
 ### 2. ✅ Run FastAPI App
 
-Example `main.py`:
-
-```python
-from fastapi import FastAPI
-import asyncio
-
-app = FastAPI()
-
-@app.get("/async-call")
-async def async_call():
-    await asyncio.sleep(3)  # Simulate non-blocking I/O
-    return {"message": "Finished async call"}
-
-@app.get("/sync-call")
-def sync_call():
-    import time
-    time.sleep(3)  # Simulate blocking call
-    return {"message": "Finished sync call"}
-```
-
-Run with:
-
 ```bash
 uvicorn main:app --reload --host 0.0.0.0 --port 8000
 ```
